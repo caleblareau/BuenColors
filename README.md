@@ -18,8 +18,21 @@ Usage
 library(BuenColors)
 ```
 
-Here are all the names that are available
------------------------------------------
+With the library loaded, just type this to get either the `continuous` or `discrete` (by default) palette printed in your `plot` console.
+
+``` r
+jdb_palette("FantasticFox")
+```
+
+![](figure/example-1.png)
+
+``` r
+jdb_palette("aqua_brick", type = "continuous")
+```
+
+![](figure/example-2.png)
+
+### Here are all the names that are available...
 
     #>   [1] "algae_earth"    "aqua_brick"     "aqua_tan"       "berry"         
     #>   [5] "blue_cyan"      "BottleRocket"   "BottleRocket2"  "brewer_blue"   
@@ -47,23 +60,6 @@ Here are all the names that are available
     #>  [93] "solar_glare"    "solar_rojos"    "teal_orange"    "teal_violet"   
     #>  [97] "white_grove"    "white_jungle"   "white_mango"    "white_orange"  
     #> [101] "white_tango"    "wolfgang_basic" "wolfgang_extra" "Zissou"
-
-How to preview the palette
---------------------------
-
-With the library loaded, just type this to get either the `continuous` or `discrete` (by default) palette printed in your `plot` console.
-
-``` r
-jdb_palette("Royal1")
-```
-
-![](figure/example-1.png)
-
-``` r
-jdb_palette("aqua_brick", type = "continuous")
-```
-
-![](figure/example-2.png)
 
 Discrete colors
 ===============

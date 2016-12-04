@@ -29,17 +29,18 @@ devtools::install_github("caleblareau/BuenColors")
 ```{r, library_dummy}
 library(BuenColors)
 ```
-## Here are all the names that are available
-```{r, palettes_dummy, echo = FALSE}
-sort(names(jdb_palettes))
-```
-## How to preview the palette
+
 With the library loaded, just type this to get either the `continuous` or 
 `discrete` (by default) palette printed in your `plot` console. 
 
 ```{r, example}
-jdb_palette("Royal1")
+jdb_palette("FantasticFox")
 jdb_palette("aqua_brick", type = "continuous")
+```
+
+### Here are all the names that are available...
+```{r, palettes_dummy, echo = FALSE}
+sort(names(jdb_palettes))
 ```
 
 # Discrete colors
