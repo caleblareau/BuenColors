@@ -33,6 +33,14 @@ library(BuenColors)
 ```{r, palettes_dummy, echo = FALSE}
 sort(names(jdb_palettes))
 ```
+## How to preview the palette
+With the library loaded, just type this to get either the `continuous` or 
+`discrete` (by default) palette printed in your `plot` console. 
+
+```{r, example}
+jdb_palette("Royal1")
+jdb_palette("aqua_brick", type = "continuous")
+```
 # Discrete colors
 The trick here is to use `scale_color_manual` like it is shown here--
 
@@ -61,7 +69,7 @@ ggplot(df, aes(x=x, y=y, colour=x)) + theme_bw() + geom_point() +
 ## Continuous Colors
 Here's what each palette looks like on a continuous scale. 
 
-```{r, printCont, echo = TRUE}
+```{r, printCont, echo = FALSE}
 jdb_palette("algae_earth", type = "continuous")
 jdb_palette("aqua_brick", type = "continuous")
 jdb_palette("aqua_tan", type = "continuous")
@@ -172,7 +180,7 @@ jdb_palette("Zissou", type = "continuous")
 Here are the discrete color units that go into each scale. If n is small and discrete, note 
 that the colors that are selected are read from left to right. 
 
-```{r, printDiscrete, echo = TRUE}
+```{r, printDiscrete, echo = FALSE}
 jdb_palette("algae_earth")
 jdb_palette("aqua_brick")
 jdb_palette("aqua_tan")
