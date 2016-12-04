@@ -7,17 +7,9 @@
 jdb_palette(name, n, type = c("discrete", "continuous"))
 }
 \arguments{
-\item{name}{Name of desired palette. Choices are:
-\code{GrandBudapest}, \code{Moonrise1},  \code{Royal1},
-\code{Moonrise2}, \code{Cavalcanti},  \code{Royal2}, \code{GrandBudapest2},
-\code{Moonrise3},  \code{Chevalier} , \code{BottleRocket} ,
-\code{darjeeling}, \code{darjeeling2}}
+\item{name}{Name of desired palette. Choices are: lots.}
 
-\item{n}{Number of colors desired. Unfortunately most palettes now only
-have 4 or 5 colors. But hopefully we'll add more palettes soon. All color
-schemes are derived from the most excellent Tumblr blog:
-\href{http://wesandersonpalettes.tumblr.com/}{Wes Anderson Palettes}.
-If omitted, uses all colours.}
+\item{n}{Number of colors desired.}
 
 \item{type}{Either "continuous" or "discrete". Use continuous if you want
 to automatically interpolate between colours.}
@@ -29,8 +21,6 @@ A vector of colours.
 These are a handful of color palettes from Wes Anderson movies.
 }
 \examples{
-jdb_palette("Royal1")
-jdb_palette("GrandBudapest")
 jdb_palette("Cavalcanti")
 jdb_palette("Cavalcanti", 3)
 

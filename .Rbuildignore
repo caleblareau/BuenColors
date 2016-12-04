@@ -1,0 +1,14 @@
+
+zzz.R
+figure/
+rushmore.jpg
+.travis.yml
+Makefile
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+screenshots/
+README.md
+README.html
+
+^cran-comments\.md$
