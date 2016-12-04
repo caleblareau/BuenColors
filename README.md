@@ -2,7 +2,7 @@
 BuenColors
 ==========
 
-A package that facilitates nice colors created for the Buenrostro Lab. The base of the package including some divergent color schemes were taken from the [wesanderson](https://github.com/karthik/wesanderson) package. Here's a quick overview of how to use the color schemes with ggplot2.
+A package that facilitates nice colors created for the Buenrostro Lab. The base of the package including some divergent color schemes were taken from the [wesanderson](https://github.com/karthik/wesanderson) package. This README provides a quick overview of how to use the color schemes with ggplot2 and which palettes are available.
 
 Installation
 ------------
@@ -48,7 +48,8 @@ Here are all the names that are available
     #>  [97] "white_grove"    "white_jungle"   "white_mango"    "white_orange"  
     #> [101] "white_tango"    "wolfgang_basic" "wolfgang_extra" "Zissou"
 
-### Discrete colors
+Discrete colors
+===============
 
 The trick here is to use `scale_color_manual` like it is shown here--
 
@@ -61,7 +62,8 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 
 ![](figure/grandbudapest-1.png)
 
-### Continuous fill
+Continuous fill
+===============
 
 The trick here is to use `scale_color_gradientn` like it is shown here--
 
@@ -75,6 +77,8 @@ ggplot(df, aes(x=x, y=y, colour=x)) + theme_bw() + geom_point() +
 
 Continuous Colors
 -----------------
+
+Here's what each palette looks like on a continuous scale.
 
 ``` r
 jdb_palette("algae_earth", type = "continuous")
@@ -702,6 +706,8 @@ jdb_palette("Zissou", type = "continuous")
 
 Discrete colors
 ---------------
+
+Here are the discrete color units that go into each scale. If n is small and discrete, note that the colors that are selected are read from left to right.
 
 ``` r
 jdb_palette("algae_earth")

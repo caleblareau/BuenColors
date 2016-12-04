@@ -1,4 +1,7 @@
 ---
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -13,7 +16,7 @@ knitr::opts_chunk$set(
 ```
 
 # BuenColors
-A package that facilitates nice colors created for the Buenrostro Lab. The base of the package including some divergent color schemes were taken from the [wesanderson](https://github.com/karthik/wesanderson) package. Here's a quick overview of how to use the color schemes with ggplot2. 
+A package that facilitates nice colors created for the Buenrostro Lab. The base of the package including some divergent color schemes were taken from the [wesanderson](https://github.com/karthik/wesanderson) package. This README provides a quick overview of how to use the color schemes with ggplot2 and which palettes are available. 
 
 ## Installation
 
@@ -30,7 +33,7 @@ library(BuenColors)
 ```{r, palettes_dummy, echo = FALSE}
 sort(names(jdb_palettes))
 ```
-### Discrete colors
+# Discrete colors
 The trick here is to use `scale_color_manual` like it is shown here--
 
 ```{r, grandbudapest, fig.height = 3}
@@ -40,7 +43,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
   scale_color_manual(values = jdb_palette("brewer_spectra"))
 ```
 
-### Continuous fill
+# Continuous fill
 The trick here is to use `scale_color_gradientn` like it is shown here--
 
 ```{r, ggplotcont, fig.height = 3}
@@ -56,6 +59,7 @@ ggplot(df, aes(x=x, y=y, colour=x)) + theme_bw() + geom_point() +
 ```
 
 ## Continuous Colors
+Here's what each palette looks like on a continuous scale. 
 
 ```{r, printCont, echo = TRUE}
 jdb_palette("algae_earth", type = "continuous")
@@ -165,6 +169,8 @@ jdb_palette("Zissou", type = "continuous")
 ```
 
 ## Discrete colors
+Here are the discrete color units that go into each scale. If n is small and discrete, note 
+that the colors that are selected are read from left to right. 
 
 ```{r, printDiscrete, echo = TRUE}
 jdb_palette("algae_earth")
