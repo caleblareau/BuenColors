@@ -2,7 +2,7 @@
 BuenColors
 ==========
 
-A package that facilitates nice colors created for the Buenrostro Lab. The base of the package including some divergent color schemes were taken from the [wesanderson](https://github.com/karthik/wesanderson) package. This README provides a quick overview of how to use the color schemes with ggplot2 and which palettes are available.
+A package that facilitates nice colors created for the [Buenrostro Lab](buenrostrolab.com). The base of the package including some divergent color schemes were taken from the [wesanderson](https://github.com/karthik/wesanderson) package. This README provides a quick overview of how to use the color schemes with ggplot2 and which palettes are available.
 
 Installation
 ------------
@@ -63,7 +63,12 @@ jdb_palette("Royal1")
 jdb_palette("aqua_brick", type = "continuous")
 ```
 
-![](figure/example-2.png) \# Discrete colors The trick here is to use `scale_color_manual` like it is shown here--
+![](figure/example-2.png)
+
+Discrete colors
+===============
+
+The trick here is to use `scale_color_manual` like it is shown here--
 
 ``` r
 library(ggplot2)
