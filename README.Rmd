@@ -1,0 +1,274 @@
+---
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "figure/",
+  fig.height = 1
+)
+```
+
+# BuenColors
+A package that facilitates nice colors created for the Buenrostro Lab. The base of the package including some divergent color schemes were taken from the [wesanderson](https://github.com/karthik/wesanderson) package. Here's a quick overview of how to use the color schemes with ggplot2. 
+
+## Installation
+
+```R
+devtools::install_github("caleblareau/BuenColors")
+```
+
+## Usage
+
+```{r, library_dummy}
+library(BuenColors)
+```
+## Here are all the names that are available
+```{r, palettes_dummy, echo = FALSE}
+sort(names(jdb_palettes))
+```
+### Discrete colors
+The trick here is to use `scale_color_manual` like it is shown here--
+
+```{r, grandbudapest, fig.height = 3}
+library(ggplot2)
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + theme_bw() + 
+  scale_color_manual(values = jdb_palette("brewer_spectra"))
+```
+
+### Continuous fill
+The trick here is to use `scale_color_gradientn` like it is shown here--
+
+```{r, ggplotcont, fig.height = 3}
+df <- data.frame(x = rnorm(1000), y = 0)
+ggplot(df, aes(x=x, y=y, colour=x)) + theme_bw() + geom_point() + 
+  scale_color_gradientn(colors = jdb_palette("flame_light"))
+```
+
+
+```{r, makeEverything, echo = FALSE}
+# Generate this
+# write.table(data.frame('jdb_palette("',sort(names(jdb_palettes)), '", type = "continuous")'), file = "choices.txt",col.names = FALSE, quote = FALSE, row.names = FALSE, sep = "")
+```
+
+## Continuous Colors
+
+```{r, printCont, echo = TRUE}
+jdb_palette("algae_earth", type = "continuous")
+jdb_palette("aqua_brick", type = "continuous")
+jdb_palette("aqua_tan", type = "continuous")
+jdb_palette("berry", type = "continuous")
+jdb_palette("blue_cyan", type = "continuous")
+jdb_palette("BottleRocket", type = "continuous")
+jdb_palette("BottleRocket2", type = "continuous")
+jdb_palette("brewer_blue", type = "continuous")
+jdb_palette("brewer_celsius", type = "continuous")
+jdb_palette("brewer_fire", type = "continuous")
+jdb_palette("brewer_green", type = "continuous")
+jdb_palette("brewer_heat", type = "continuous")
+jdb_palette("brewer_jamaica", type = "continuous")
+jdb_palette("brewer_marine", type = "continuous")
+jdb_palette("brewer_orange", type = "continuous")
+jdb_palette("brewer_purple", type = "continuous")
+jdb_palette("brewer_red", type = "continuous")
+jdb_palette("brewer_spectra", type = "continuous")
+jdb_palette("brewer_violet", type = "continuous")
+jdb_palette("brewer_yes", type = "continuous")
+jdb_palette("calma_azules", type = "continuous")
+jdb_palette("calma_bosque", type = "continuous")
+jdb_palette("calma_manudo", type = "continuous")
+jdb_palette("calma_marino", type = "continuous")
+jdb_palette("calma_morado", type = "continuous")
+jdb_palette("calma_musgos", type = "continuous")
+jdb_palette("Cavalcanti", type = "continuous")
+jdb_palette("Chevalier", type = "continuous")
+jdb_palette("china_basics", type = "continuous")
+jdb_palette("china_dragon", type = "continuous")
+jdb_palette("china_novice", type = "continuous")
+jdb_palette("china_ranges", type = "continuous")
+jdb_palette("china_sunset", type = "continuous")
+jdb_palette("china_theory", type = "continuous")
+jdb_palette("china_weirdo", type = "continuous")
+jdb_palette("citric", type = "continuous")
+jdb_palette("citric_yellow", type = "continuous")
+jdb_palette("citrus", type = "continuous")
+jdb_palette("cyan_brick", type = "continuous")
+jdb_palette("cyan_green", type = "continuous")
+jdb_palette("cyan_pink", type = "continuous")
+jdb_palette("cyan_purple", type = "continuous")
+jdb_palette("cyan_tan", type = "continuous")
+jdb_palette("cyan_violet", type = "continuous")
+jdb_palette("Darjeeling", type = "continuous")
+jdb_palette("Darjeeling2", type = "continuous")
+jdb_palette("dark_blue", type = "continuous")
+jdb_palette("dark_citrus", type = "continuous")
+jdb_palette("dark_cyan", type = "continuous")
+jdb_palette("dark_violet", type = "continuous")
+jdb_palette("dusk_dawn", type = "continuous")
+jdb_palette("FantasticFox", type = "continuous")
+jdb_palette("flame_artic", type = "continuous")
+jdb_palette("flame_blind", type = "continuous")
+jdb_palette("flame_flame", type = "continuous")
+jdb_palette("flame_light", type = "continuous")
+jdb_palette("flame_macaw", type = "continuous")
+jdb_palette("flame_polar", type = "continuous")
+jdb_palette("flame_volts", type = "continuous")
+jdb_palette("flame_watts", type = "continuous")
+jdb_palette("flame_weird", type = "continuous")
+jdb_palette("flame_wings", type = "continuous")
+jdb_palette("forest", type = "continuous")
+jdb_palette("forest_citric", type = "continuous")
+jdb_palette("forest_yellow", type = "continuous")
+jdb_palette("GrandBudapest", type = "continuous")
+jdb_palette("GrandBudapest2", type = "continuous")
+jdb_palette("horizon", type = "continuous")
+jdb_palette("horizon_extra", type = "continuous")
+jdb_palette("Moonrise1", type = "continuous")
+jdb_palette("Moonrise2", type = "continuous")
+jdb_palette("Moonrise3", type = "continuous")
+jdb_palette("ocean_aqua", type = "continuous")
+jdb_palette("ocean_brick", type = "continuous")
+jdb_palette("ocean_citrus", type = "continuous")
+jdb_palette("ocean_earth", type = "continuous")
+jdb_palette("ocean_green", type = "continuous")
+jdb_palette("ocean_pink", type = "continuous")
+jdb_palette("ocean_red", type = "continuous")
+jdb_palette("ocean_teal", type = "continuous")
+jdb_palette("purple_baby", type = "continuous")
+jdb_palette("purple_pink", type = "continuous")
+jdb_palette("Royal1", type = "continuous")
+jdb_palette("Royal2", type = "continuous")
+jdb_palette("Rushmore", type = "continuous")
+jdb_palette("samba_color", type = "continuous")
+jdb_palette("samba_light", type = "continuous")
+jdb_palette("samba_night", type = "continuous")
+jdb_palette("solar_basic", type = "continuous")
+jdb_palette("solar_blues", type = "continuous")
+jdb_palette("solar_extra", type = "continuous")
+jdb_palette("solar_flare", type = "continuous")
+jdb_palette("solar_glare", type = "continuous")
+jdb_palette("solar_rojos", type = "continuous")
+jdb_palette("teal_orange", type = "continuous")
+jdb_palette("teal_violet", type = "continuous")
+jdb_palette("white_grove", type = "continuous")
+jdb_palette("white_jungle", type = "continuous")
+jdb_palette("white_mango", type = "continuous")
+jdb_palette("white_orange", type = "continuous")
+jdb_palette("white_tango", type = "continuous")
+jdb_palette("wolfgang_basic", type = "continuous")
+jdb_palette("wolfgang_extra", type = "continuous")
+jdb_palette("Zissou", type = "continuous")
+```
+
+## Discrete colors
+
+```{r, printDiscrete, echo = TRUE}
+jdb_palette("algae_earth")
+jdb_palette("aqua_brick")
+jdb_palette("aqua_tan")
+jdb_palette("berry")
+jdb_palette("blue_cyan")
+jdb_palette("BottleRocket")
+jdb_palette("BottleRocket2")
+jdb_palette("brewer_blue")
+jdb_palette("brewer_celsius")
+jdb_palette("brewer_fire")
+jdb_palette("brewer_green")
+jdb_palette("brewer_heat")
+jdb_palette("brewer_jamaica")
+jdb_palette("brewer_marine")
+jdb_palette("brewer_orange")
+jdb_palette("brewer_purple")
+jdb_palette("brewer_red")
+jdb_palette("brewer_spectra")
+jdb_palette("brewer_violet")
+jdb_palette("brewer_yes")
+jdb_palette("calma_azules")
+jdb_palette("calma_bosque")
+jdb_palette("calma_manudo")
+jdb_palette("calma_marino")
+jdb_palette("calma_morado")
+jdb_palette("calma_musgos")
+jdb_palette("Cavalcanti")
+jdb_palette("Chevalier")
+jdb_palette("china_basics")
+jdb_palette("china_dragon")
+jdb_palette("china_novice")
+jdb_palette("china_ranges")
+jdb_palette("china_sunset")
+jdb_palette("china_theory")
+jdb_palette("china_weirdo")
+jdb_palette("citric")
+jdb_palette("citric_yellow")
+jdb_palette("citrus")
+jdb_palette("cyan_brick")
+jdb_palette("cyan_green")
+jdb_palette("cyan_pink")
+jdb_palette("cyan_purple")
+jdb_palette("cyan_tan")
+jdb_palette("cyan_violet")
+jdb_palette("Darjeeling")
+jdb_palette("Darjeeling2")
+jdb_palette("dark_blue")
+jdb_palette("dark_citrus")
+jdb_palette("dark_cyan")
+jdb_palette("dark_violet")
+jdb_palette("dusk_dawn")
+jdb_palette("FantasticFox")
+jdb_palette("flame_artic")
+jdb_palette("flame_blind")
+jdb_palette("flame_flame")
+jdb_palette("flame_light")
+jdb_palette("flame_macaw")
+jdb_palette("flame_polar")
+jdb_palette("flame_volts")
+jdb_palette("flame_watts")
+jdb_palette("flame_weird")
+jdb_palette("flame_wings")
+jdb_palette("forest")
+jdb_palette("forest_citric")
+jdb_palette("forest_yellow")
+jdb_palette("GrandBudapest")
+jdb_palette("GrandBudapest2")
+jdb_palette("horizon")
+jdb_palette("horizon_extra")
+jdb_palette("Moonrise1")
+jdb_palette("Moonrise2")
+jdb_palette("Moonrise3")
+jdb_palette("ocean_aqua")
+jdb_palette("ocean_brick")
+jdb_palette("ocean_citrus")
+jdb_palette("ocean_earth")
+jdb_palette("ocean_green")
+jdb_palette("ocean_pink")
+jdb_palette("ocean_red")
+jdb_palette("ocean_teal")
+jdb_palette("purple_baby")
+jdb_palette("purple_pink")
+jdb_palette("Royal1")
+jdb_palette("Royal2")
+jdb_palette("Rushmore")
+jdb_palette("samba_color")
+jdb_palette("samba_light")
+jdb_palette("samba_night")
+jdb_palette("solar_basic")
+jdb_palette("solar_blues")
+jdb_palette("solar_extra")
+jdb_palette("solar_flare")
+jdb_palette("solar_glare")
+jdb_palette("solar_rojos")
+jdb_palette("teal_orange")
+jdb_palette("teal_violet")
+jdb_palette("white_grove")
+jdb_palette("white_jungle")
+jdb_palette("white_mango")
+jdb_palette("white_orange")
+jdb_palette("white_tango")
+jdb_palette("wolfgang_basic")
+jdb_palette("wolfgang_extra")
+jdb_palette("Zissou")
+```
