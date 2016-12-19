@@ -121,7 +121,7 @@ jdb_palettes <- list(
 
 #' A palette generator
 #'
-#' These are a handful of color palettes from Wes Anderson movies.
+#' These are a handful of color palettes for the Buenrostrolab.
 #'
 #' @param n Number of colors desired.
 #' @param name Name of desired palette. Choices are: lots.
