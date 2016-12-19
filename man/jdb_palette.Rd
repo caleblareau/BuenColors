@@ -18,7 +18,7 @@ to automatically interpolate between colours.}
 A vector of colours.
 }
 \description{
-These are a handful of color palettes from Wes Anderson movies.
+These are a handful of color palettes for the Buenrostrolab.
 }
 \examples{
 jdb_palette("Cavalcanti")
