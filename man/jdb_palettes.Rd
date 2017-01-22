@@ -4,7 +4,7 @@
 \name{jdb_palettes}
 \alias{jdb_palettes}
 \title{Complete list of palettes}
-\format{An object of class \code{list} of length 104.}
+\format{An object of class \code{list} of length 105.}
 \usage{
 jdb_palettes
 }

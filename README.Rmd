@@ -65,7 +65,7 @@ ggplot(df, aes(x=x, y=y, colour=x)) + theme_bw() + geom_point() +
 
 ```{r, makeEverything, echo = FALSE}
 # Generate this
-# write.table(data.frame('jdb_palette("',sort(names(jdb_palettes)), '", type = "continuous")'), file = "choices.txt",col.names = FALSE, quote = FALSE, row.names = FALSE, sep = "")
+#write.table(data.frame('jdb_palette("',sort(names(jdb_palettes)), '", type = "continuous")'), file = "choices.txt",col.names = FALSE, quote = FALSE, row.names = FALSE, sep = "")
 ```
 
 ## Continuous Colors
@@ -168,6 +168,7 @@ jdb_palette("solar_glare", type = "continuous")
 jdb_palette("solar_rojos", type = "continuous")
 jdb_palette("teal_orange", type = "continuous")
 jdb_palette("teal_violet", type = "continuous")
+jdb_palette("tol21rainbow", type = "continuous")
 jdb_palette("white_grove", type = "continuous")
 jdb_palette("white_jungle", type = "continuous")
 jdb_palette("white_mango", type = "continuous")
@@ -279,6 +280,7 @@ jdb_palette("solar_glare")
 jdb_palette("solar_rojos")
 jdb_palette("teal_orange")
 jdb_palette("teal_violet")
+jdb_palette("tol21rainbow")
 jdb_palette("white_grove")
 jdb_palette("white_jungle")
 jdb_palette("white_mango")

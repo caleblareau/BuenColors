@@ -23,6 +23,12 @@ jdb_palettes <- list(
   Darjeeling2 = c("#ECCBAE", "#046C9A", "#D69C4E", "#ABDDDE", "#000000"),
   BottleRocket2 = c("#FAD510", "#CB2314", "#273046", "#354823", "#1E1E1E"),
 
+  # Others
+  tol21rainbow = c("#771155", "#AA4488", "#CC99BB", "#114477", "#4477AA", "#77AADD",
+                  "#117777", "#44AAAA", "#77CCCC", "#117744", "#44AA77", "#88CCAA",
+                  "#777711", "#AAAA44", "#DDDD77", "#774411", "#AA7744", "#DDAA77",
+                  "#771122", "#AA4455", "#DD7788"),
+
   # Palettes from JDB
   citric = c('#03AB11', '#FFF301'),
   citrus = c('#15E602', '#FFFF33'),
