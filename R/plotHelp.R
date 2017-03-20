@@ -67,5 +67,5 @@ return(nl)
 #'
 #' @export
 shuf <- function(df){
-  return(df[sample(1,dim(df)[1]),])
+  return(df[sample(1:dim(df)[1], dim(df)[1]),])
 }

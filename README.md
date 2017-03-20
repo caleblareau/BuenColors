@@ -116,6 +116,21 @@ ggplot2::ggplot(dat) + geom_point(aes(x, y, color = density)) +
 
 ![](figure/ggplotdensty-1.png)
 
+Shuffle Plot Order
+==================
+
+Quick wrapper using `shuf` to change the order of plotting points (to a random presentation) to avoid hiding effects.
+
+``` r
+tdf<-paste(system.file('rds',package='BuenColors'),'basicTSNE.rds',sep='/')
+df <- readRDS(tdf)
+ggplot(shuf(df)) + geom_point(aes(X1, X2, color = counts)) + 
+  scale_color_gradientn(colors = jdb_palette("solar_extra")) +
+  pretty_plot()
+```
+
+![](figure/tsne-1.png)
+
 Continuous Colors
 -----------------
 
