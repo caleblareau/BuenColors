@@ -1,17 +1,25 @@
 Package: BuenColors
-Title: Color themes for Buenrostrolab
-Description: Handy color guides for all the colors
-Date: 2016-1-21
-Version: 0.1.1
+Title: Plotting help for Buenrostrolab
+Description: Handy color guides for all the colors, etc.
+Date: 2016-3-20
+Version: 0.2.0
 Authors@R: c(
     person("Caleb", "Lareau", email = "caleblareau@g.harvard.edu", role = c("aut", "cre"))
     )
 Depends:
+    MASS,
+    ggplot2,
+    grDevices,
+    graphics,
     R (>= 3.0)
 License: MIT + file LICENSE
 LazyData: true
 Suggests:
-    ggplot2
+    knitr
 URL: https://github.com/caleblareau/BuenColors
 BugReports: https://github.com/caleblareau/BuenColors/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
+Collate: 
+    'BuenColors.R'
+    'colors.R'
+    'plotHelp.R'

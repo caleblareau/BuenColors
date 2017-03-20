@@ -12,4 +12,3 @@ jdb_palettes
 Use \code{\link{jdb_palette}} to construct palettes of desired length.
 }
 \keyword{datasets}
-

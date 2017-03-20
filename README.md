@@ -16,6 +16,8 @@ Usage
 
 ``` r
 library(BuenColors)
+#> Loading required package: MASS
+#> Loading required package: ggplot2
 ```
 
 With the library loaded, just type this to get either the `continuous` or `discrete` (by default) palette printed in your `plot` console.
@@ -70,11 +72,11 @@ The trick here is to use `scale_color_manual` like it is shown here--
 ``` r
 library(ggplot2)
 ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
-  geom_point() + theme_bw() + 
+  geom_point() + pretty_plot() + 
   scale_color_manual(values = jdb_palette("brewer_spectra"))
 ```
 
-![](figure/grandbudapest-1.png)
+![](figure/discrete-1.png)
 
 Continuous fill
 ===============
@@ -83,11 +85,36 @@ The trick here is to use `scale_color_gradientn` like it is shown here--
 
 ``` r
 df <- data.frame(x = rnorm(1000), y = 0)
-ggplot(df, aes(x=x, y=y, colour=x)) + theme_bw() + geom_point() + 
-  scale_color_gradientn(colors = jdb_palette("flame_light"))
+ggplot(df, aes(x=x, y=y, colour=x)) + geom_point() + 
+  scale_color_gradientn(colors = jdb_palette("flame_light")) +
+  pretty_plot()
 ```
 
 ![](figure/ggplotcont-1.png)
+
+Density Plot
+============
+
+Best way that I've found to make the density color function represented in the points. Thanks to [Kamil Slowikowski](http://slowkow.com/notes/ggplot2-color-by-density/) for figuring this out.
+
+``` r
+dat <- data.frame(
+  x = c(
+    rnorm(1e4, mean = 0, sd = 0.1),
+    rnorm(1e3, mean = 0, sd = 0.1)
+  ),
+  y = c(
+    rnorm(1e4, mean = 0, sd = 0.1),
+    rnorm(1e3, mean = 0.1, sd = 0.2)
+  )
+)
+dat$density <- get_density(dat$x, dat$y)
+ggplot2::ggplot(dat) + geom_point(aes(x, y, color = density)) + 
+  scale_color_gradientn(colors = jdb_palette("solar_extra")) +
+  pretty_plot()
+```
+
+![](figure/ggplotdensty-1.png)
 
 Continuous Colors
 -----------------

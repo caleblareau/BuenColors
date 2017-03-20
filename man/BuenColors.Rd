@@ -11,4 +11,3 @@ list of palettes for the BuenrostroLab
 \details{
 list of palettes for BuenrostroLab
 }
-

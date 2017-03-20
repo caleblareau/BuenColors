@@ -31,4 +31,3 @@ pal <- jdb_palette(21, name = "Zissou", type = "continuous")
 image(volcano, col = pal)
 }
 \keyword{colors}
-

@@ -1,3 +1,6 @@
+#' @include BuenColors.R
+NULL
+
 #' Complete list of palettes
 #'
 #' Use \code{\link{jdb_palette}} to construct palettes of desired length.
@@ -136,7 +139,6 @@ jdb_palettes <- list(
 #' @return A vector of colours.
 #' @importFrom grDevices colorRampPalette rgb
 #' @importFrom graphics image par rect text
-#' @export
 #' @keywords colors
 #' @examples
 #' jdb_palette("Cavalcanti")
@@ -147,6 +149,7 @@ jdb_palettes <- list(
 #' # colours
 #' pal <- jdb_palette(21, name = "Zissou", type = "continuous")
 #' image(volcano, col = pal)
+#' @export
 jdb_palette <- function(name, n, type = c("discrete", "continuous")) {
   type <- match.arg(type)
 
