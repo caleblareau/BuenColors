@@ -38,16 +38,17 @@ get_density <- function(x, y, n = 200) {
 #'
 #' Idea is to make it look more like Matlab
 #'
+#' @param fontsize You know, the font size lol; default = 12
 #' @return A vector of densities for plotting
-#' @importFrom ggplot2 theme theme_bw element_blank
+#' @importFrom ggplot2 theme theme_bw element_blank element_text
 #' @keywords point density
 #' @examples
 #' df <- data.frame(x = rnorm(1000), y = 0)
 #' ggplot(df, aes(x=x, y=y, colour=x)) + geom_point()
 #'
 #' @export
-pretty_plot <- function(){
-nl <- theme_bw(base_size = 16) +
+pretty_plot <- function(fontsize = 12){
+nl <- theme_bw(base_size = fontsize) +
   theme(
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
@@ -57,8 +58,8 @@ return(nl)
 
 #' Randomly shuffle the plotting order
 #'
-#' Idea is to make it look more like
-#'
+#' Idea is to make the plot independent of the sample ordering
+#' @param df data.frame (or similar 2D feature) whose rows will be shuffled
 #' @return An object with the rows shuffled
 #' @keywords point density
 #' @examples

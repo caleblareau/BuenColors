@@ -1,8 +1,8 @@
 Package: BuenColors
 Title: Plotting help for Buenrostrolab
 Description: Handy color guides for all the colors, etc.
-Date: 2016-3-20
-Version: 0.2.0
+Date: 2016-4-18
+Version: 0.2.1
 Authors@R: c(
     person("Caleb", "Lareau", email = "caleblareau@g.harvard.edu", role = c("aut", "cre"))
     )

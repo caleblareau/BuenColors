@@ -143,11 +143,12 @@ jdb_palettes <- list(
 #' @examples
 #' jdb_palette("Cavalcanti")
 #' jdb_palette("Cavalcanti", 3)
+#' jdb_palette("Cavalcanti", c(1,3))
 #'
 #' # If you need more colours than normally found in a palette, you
 #' # can use a continuous palette to interpolate between existing
 #' # colours
-#' pal <- jdb_palette(21, name = "Zissou", type = "continuous")
+#' pal <- jdb_palette(name = "Zissou", 21,  type = "continuous")
 #' image(volcano, col = pal)
 #' @export
 jdb_palette <- function(name, n, type = c("discrete", "continuous")) {

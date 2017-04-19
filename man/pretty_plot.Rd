@@ -4,7 +4,10 @@
 \alias{pretty_plot}
 \title{Get rid of gridlines, etc.}
 \usage{
-pretty_plot()
+pretty_plot(fontsize = 12)
+}
+\arguments{
+\item{fontsize}{You know, the font size lol; default = 12}
 }
 \value{
 A vector of densities for plotting
