@@ -100,7 +100,9 @@ ggplot(shuf(df)) + geom_point(aes(X1, X2, color = counts)) +
 
 ```{r, makeEverything, echo = FALSE}
 # Generate this
-#write.table(data.frame('jdb_palette("',sort(names(jdb_palettes)), '", type = "continuous")'), file = "choices.txt",col.names = FALSE, quote = FALSE, row.names = FALSE, sep = "")
+write.table(data.frame('jdb_palette("',sort(names(jdb_palettes)), '", type = "continuous")'), file = "choices_cont.txt",col.names = FALSE, quote = FALSE, row.names = FALSE, sep = "")
+
+write.table(data.frame('jdb_palette("',sort(names(jdb_palettes)), '")'), file = "choices_disc.txt",col.names = FALSE, quote = FALSE, row.names = FALSE, sep = "")
 ```
 
 ## Continuous Colors
@@ -288,6 +290,7 @@ jdb_palette("GrandBudapest")
 jdb_palette("GrandBudapest2")
 jdb_palette("horizon")
 jdb_palette("horizon_extra")
+jdb_palette("lawhoops")
 jdb_palette("Moonrise1")
 jdb_palette("Moonrise2")
 jdb_palette("Moonrise3")
@@ -315,7 +318,6 @@ jdb_palette("solar_glare")
 jdb_palette("solar_rojos")
 jdb_palette("teal_orange")
 jdb_palette("teal_violet")
-jdb_palette("tol21rainbow")
 jdb_palette("white_grove")
 jdb_palette("white_jungle")
 jdb_palette("white_mango")

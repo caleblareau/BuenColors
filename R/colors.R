@@ -27,10 +27,9 @@ jdb_palettes <- list(
   BottleRocket2 = c("#FAD510", "#CB2314", "#273046", "#354823", "#1E1E1E"),
 
   # Others
-  tol21rainbow = c("#771155", "#AA4488", "#CC99BB", "#114477", "#4477AA", "#77AADD",
-                  "#117777", "#44AAAA", "#77CCCC", "#117744", "#44AA77", "#88CCAA",
-                  "#777711", "#AAAA44", "#DDDD77", "#774411", "#AA7744", "#DDAA77",
-                  "#771122", "#AA4455", "#DD7788"),
+  lawhoops = c('#371377','#7700FF','#9E0142',"#CB2314",'#FF0080', '#DC494C',
+       '#F88D51', "#FAD510","#FFFF5F",'#88CFA4','#238B45',"#02401B",
+       "#0AD7D3", "dodgerblue", "#046C9A", "#273046", "#A2A475", "#354823", 'grey35', "#1E1E1E"),
 
   # Palettes from JDB
   citric = c('#03AB11', '#FFF301'),

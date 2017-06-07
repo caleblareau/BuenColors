@@ -1,3 +1,12 @@
+
+Version 0.2.1
+=============
+* Starting with custom palettes for CAL.
+
+Version 0.2
+=============
+* Added functionality, including pretty_plot().
+
 Version 0.1
 =============
-* Basic creation. 
+* Basic creation.
