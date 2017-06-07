@@ -98,7 +98,7 @@ ggplot(shuf(df)) + geom_point(aes(X1, X2, color = counts)) +
   pretty_plot()
 ```
 
-```{r, makeEverything, echo = FALSE}
+```{r, makeEverything, echo = FALSE, eval = FALSE}
 # Generate this
 write.table(data.frame('jdb_palette("',sort(names(jdb_palettes)), '", type = "continuous")'), file = "choices_cont.txt",col.names = FALSE, quote = FALSE, row.names = FALSE, sep = "")
 
@@ -178,6 +178,7 @@ jdb_palette("GrandBudapest", type = "continuous")
 jdb_palette("GrandBudapest2", type = "continuous")
 jdb_palette("horizon", type = "continuous")
 jdb_palette("horizon_extra", type = "continuous")
+jdb_palette("lawhoops", type = "continuous")
 jdb_palette("Moonrise1", type = "continuous")
 jdb_palette("Moonrise2", type = "continuous")
 jdb_palette("Moonrise3", type = "continuous")
@@ -205,7 +206,6 @@ jdb_palette("solar_glare", type = "continuous")
 jdb_palette("solar_rojos", type = "continuous")
 jdb_palette("teal_orange", type = "continuous")
 jdb_palette("teal_violet", type = "continuous")
-jdb_palette("tol21rainbow", type = "continuous")
 jdb_palette("white_grove", type = "continuous")
 jdb_palette("white_jungle", type = "continuous")
 jdb_palette("white_mango", type = "continuous")
