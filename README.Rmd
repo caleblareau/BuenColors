@@ -24,9 +24,9 @@ A package that facilitates nice colors created for the [Buenrostro Lab](https://
 devtools::install_github("caleblareau/BuenColors")
 ```
 
-## Usage
+## Color Palettes 
 
-```{r, library_dummy}
+```{r, library_dummy, message=FALSE, warning = FALSE}
 library(BuenColors)
 ```
 
@@ -41,6 +41,22 @@ jdb_palette("aqua_brick", type = "continuous")
 ### Here are all the names that are available...
 ```{r, palettes_dummy, echo = FALSE}
 sort(names(jdb_palettes))
+```
+
+## Color Maps
+```{r, colormaps, fig.height = 10, echo = FALSE}
+df <- data.frame(names = factor(names(color_maps), ordered = TRUE), 
+                 color_maps = unname(color_maps))
+
+ggplot(df, aes(x = names, y = -1, fill = names)) +
+  geom_bar(stat = "identity") + pretty_plot(fontsize = 20) + 
+  scale_fill_manual(values = as.character(df$color_maps)[order(df$names)]) + coord_flip() +
+  theme(legend.position = "none")+
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(x = NULL, y = NULL, title = "Buenrostro Lab Cell Schemes") +
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(), panel.border = element_blank())
+
 ```
 
 # Discrete colors

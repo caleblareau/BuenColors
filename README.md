@@ -11,13 +11,11 @@ Installation
 devtools::install_github("caleblareau/BuenColors")
 ```
 
-Usage
------
+Color Palettes
+--------------
 
 ``` r
 library(BuenColors)
-#> Loading required package: MASS
-#> Loading required package: ggplot2
 ```
 
 With the library loaded, just type this to get either the `continuous` or `discrete` (by default) palette printed in your `plot` console.
@@ -63,6 +61,11 @@ jdb_palette("aqua_brick", type = "continuous")
     #>  [97] "teal_violet"    "white_grove"    "white_jungle"   "white_mango"   
     #> [101] "white_orange"   "white_tango"    "wolfgang_basic" "wolfgang_extra"
     #> [105] "Zissou"
+
+Color Maps
+----------
+
+![](figure/colormaps-1.png)
 
 Discrete colors
 ===============
