@@ -3,10 +3,10 @@ NULL
 
 #' List of maps between annotations and specified colors.
 #'
-#' Use \code{\link{color_map}} to map cell/feature to color hex.
+#' Use \code{\link{jdb_color_map}} to map cell/feature to color hex.
 #'
 #' @export
-color_maps <- c(
+jdb_color_maps <- c(
   "HSC" = "#00441B",
   "MPP" = "#46A040",
   "LMPP" = "#00AF99",
@@ -41,15 +41,15 @@ color_maps <- c(
 #' @keywords colors
 #' @examples
 #' # See possible values
-#' names(color_maps)
+#' names(jdb_color_maps)
 #'
 #' # Get hex codes
-#' color_map("HSC")
-#' color_map(c("HSC", "LMPP", "HSC"))
+#' jdb_color_map("HSC")
+#' jdb_color_map(c("HSC", "LMPP", "HSC"))
 #'
 #' @export
-color_map <- function(name) {
-  stopifnot(all(name %in% names(color_maps)))
-return(unname(color_maps[name]))
+jdb_color_map <- function(name) {
+  stopifnot(all(name %in% names(jdb_color_maps)))
+return(unname(jdb_color_maps[name]))
 }
 

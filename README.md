@@ -68,22 +68,22 @@ Color Maps
 To keep consistent color designations, one can use the `color_map` function to link features to their specific hex color annoations. For example,
 
 ``` r
-color_map(c("HSC"))
+jdb_color_map(c("HSC"))
 #> [1] "#00441B"
 ```
 
 returns the hex code associated with `HSC` in the Buenrostro Lab paradigm. This function may be applied over multiple features--
 
 ``` r
-color_map(c("HSC", "CMP", "HSC"))
+jdb_color_map(c("HSC", "CMP", "HSC"))
 #> [1] "#00441B" "#FFC179" "#00441B"
 ```
 
 and will error out when a feature is not recognized--
 
 ``` r
-color_map(c("WHAT"))
-#>  Error: all(name %in% names(color_maps)) is not TRUE 
+jdb_color_map(c("WHAT"))
+#>  Error: all(name %in% names(jdb_color_maps)) is not TRUE 
 ```
 
 ### Here are all the names that are available...
@@ -95,6 +95,32 @@ color_map(c("WHAT"))
 ### Here are what the mappings look like...
 
 ![](figure/colormaps-1.png)
+
+ggplot example
+--------------
+
+To coordinate a ggplot feature (e.g. data point in a scatter plot) with a particular color, [this post](https://www.biostars.org/p/204891/) was a life-saver. Specifically, we'll use a named vector to coordinate the discrete values. Here's an example--
+
+``` r
+xy <- 1:7
+cell <- c("GMP-A", "Ery", "CD4", "Ery", "LMPP", "ERY", "MEP")
+
+df <- data.frame(
+  xy = xy,
+  cell = cell, stringsAsFactors = FALSE
+)
+
+ggplot(df, aes(x = xy, y = xy, color = cell)) +
+  geom_point(size = 12) + pretty_plot() +
+  scale_color_manual(values = jdb_color_maps)
+#> Warning: Removed 1 rows containing missing values (geom_point).
+```
+
+![](figure/colormapPlotExample-1.png) **P.S.**-- it will return a white/blank color for features that are not found in the color map.
+
+### Important Note on color mappings...
+
+The above `ggplot` command works because `jdb_color_maps` (with an 's') exists as a named vector in the `BuenColors` NAMESPACE. The provided function (`jdb_color_map`) does not have an 's' by the way. This same syntax of supplying a named vector should work for all discrete color scale functionalities in `ggplot`.
 
 Discrete colors
 ===============

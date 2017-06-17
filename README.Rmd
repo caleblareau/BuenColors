@@ -48,36 +48,36 @@ To keep consistent color designations, one can use the `color_map` function to l
 specific hex color annoations. For example, 
 
 ```{r, hsc1, echo = TRUE}
-color_map(c("HSC"))
+jdb_color_map(c("HSC"))
 ```
 
 returns the hex code associated with `HSC` in the Buenrostro Lab paradigm. This function may be applied 
 over multiple features--
 
 ```{r, hsc2, echo = TRUE}
-color_map(c("HSC", "CMP", "HSC"))
+jdb_color_map(c("HSC", "CMP", "HSC"))
 ```
 
 and will error out when a feature is not recognized--
 
 ```{r, hsc0, echo = TRUE, eval = FALSE}
-color_map(c("WHAT"))
-#>  Error: all(name %in% names(color_maps)) is not TRUE 
+jdb_color_map(c("WHAT"))
+#>  Error: all(name %in% names(jdb_color_maps)) is not TRUE 
 ```
 
 ### Here are all the names that are available...
 ```{r, colmaps_dummy, echo = FALSE}
-sort(names(color_maps))
+sort(names(jdb_color_maps))
 ```
 
 ### Here are what the mappings look like...
 ```{r, colormaps, fig.height = 10, echo = FALSE}
-df <- data.frame(names = factor(names(color_maps), ordered = TRUE), 
-                 color_maps = unname(color_maps))
+df <- data.frame(names = factor(names(jdb_color_maps), ordered = TRUE), 
+                 color_maps = unname(jdb_color_maps))
 
 ggplot(df, aes(x = names, y = -1, fill = names)) +
   geom_bar(stat = "identity") + pretty_plot(fontsize = 20) + 
-  scale_fill_manual(values = as.character(df$color_maps)[order(df$names)]) + coord_flip() +
+  scale_fill_manual(values = as.character(df$jdb_color_maps)[order(df$names)]) + coord_flip() +
   theme(legend.position = "none")+
   scale_y_continuous(expand = c(0, 0)) +
   labs(x = NULL, y = NULL, title = "Buenrostro Lab Cell Schemes") +
@@ -85,6 +85,29 @@ ggplot(df, aes(x = names, y = -1, fill = names)) +
         axis.ticks.x=element_blank(), panel.border = element_blank())
 
 ```
+
+## ggplot example
+To coordinate a ggplot feature (e.g. data point in a scatter plot) with a particular color, [this post](https://www.biostars.org/p/204891/) was a life-saver. Specifically, we'll use a named vector
+to coordinate the discrete values. Here's an example--
+```{r, colormapPlotExample, fig.height = 3, echo = TRUE}
+xy <- 1:7
+cell <- c("GMP-A", "Ery", "CD4", "Ery", "LMPP", "ERY", "MEP")
+
+df <- data.frame(
+  xy = xy,
+  cell = cell, stringsAsFactors = FALSE
+)
+
+ggplot(df, aes(x = xy, y = xy, color = cell)) +
+  geom_point(size = 12) + pretty_plot() +
+  scale_color_manual(values = jdb_color_maps)
+
+```
+**P.S.**-- it will return a white/blank color for features that are not found in the color map. 
+
+### Important Note on color mappings...
+
+The above `ggplot` command works because `jdb_color_maps` (with an 's') exists as a named vector in the `BuenColors` NAMESPACE. The provided function (`jdb_color_map`) does not have an 's' by the way. This same syntax of supplying a named vector should work for all discrete color scale functionalities in `ggplot`. 
 
 # Discrete colors
 The trick here is to use `scale_color_manual` like it is shown here--
