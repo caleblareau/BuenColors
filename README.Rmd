@@ -44,6 +44,33 @@ sort(names(jdb_palettes))
 ```
 
 ## Color Maps
+To keep consistent color designations, one can use the `color_map` function to link features to their 
+specific hex color annoations. For example, 
+
+```{r, hsc1, echo = TRUE}
+color_map(c("HSC"))
+```
+
+returns the hex code associated with `HSC` in the Buenrostro Lab paradigm. This function may be applied 
+over multiple features--
+
+```{r, hsc2, echo = TRUE}
+color_map(c("HSC", "CMP", "HSC"))
+```
+
+and will error out when a feature is not recognized--
+
+```{r, hsc0, echo = TRUE, eval = FALSE}
+color_map(c("WHAT"))
+#>  Error: all(name %in% names(color_maps)) is not TRUE 
+```
+
+### Here are all the names that are available...
+```{r, colmaps_dummy, echo = FALSE}
+sort(names(color_maps))
+```
+
+### Here are what the mappings look like...
 ```{r, colormaps, fig.height = 10, echo = FALSE}
 df <- data.frame(names = factor(names(color_maps), ordered = TRUE), 
                  color_maps = unname(color_maps))

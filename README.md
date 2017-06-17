@@ -65,6 +65,35 @@ jdb_palette("aqua_brick", type = "continuous")
 Color Maps
 ----------
 
+To keep consistent color designations, one can use the `color_map` function to link features to their specific hex color annoations. For example,
+
+``` r
+color_map(c("HSC"))
+#> [1] "#00441B"
+```
+
+returns the hex code associated with `HSC` in the Buenrostro Lab paradigm. This function may be applied over multiple features--
+
+``` r
+color_map(c("HSC", "CMP", "HSC"))
+#> [1] "#00441B" "#FFC179" "#00441B"
+```
+
+and will error out when a feature is not recognized--
+
+``` r
+color_map(c("WHAT"))
+#>  Error: all(name %in% names(color_maps)) is not TRUE 
+```
+
+### Here are all the names that are available...
+
+    #>  [1] "B"     "CD4"   "CD8"   "CLP"   "CMP"   "Ery"   "GMP"   "GMP-A"
+    #>  [9] "GMP-B" "GMP-C" "HSC"   "LMPP"  "MEP"   "mono"  "MPP"   "NK"   
+    #> [17] "pDC"
+
+### Here are what the mappings look like...
+
 ![](figure/colormaps-1.png)
 
 Discrete colors
