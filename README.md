@@ -111,12 +111,14 @@ df <- data.frame(
 )
 
 ggplot(df, aes(x = xy, y = xy, color = cell)) +
-  geom_point(size = 12) + pretty_plot() +
+  geom_point(size = 10) + pretty_plot() +
   scale_color_manual(values = jdb_color_maps)
 #> Warning: Removed 1 rows containing missing values (geom_point).
 ```
 
-![](figure/colormapPlotExample-1.png) **P.S.**-- it will return a white/blank color for features that are not found in the color map.
+![](figure/colormapPlotExample-1.png)
+
+**P.S.**-- this call will return a white/blank color for features that are not found in the color map ("ERY" in this example).
 
 ### Important Note on color mappings...
 

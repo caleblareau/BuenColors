@@ -73,7 +73,7 @@ sort(names(jdb_color_maps))
 ### Here are what the mappings look like...
 ```{r, colormaps, fig.height = 10, echo = FALSE}
 df <- data.frame(names = factor(names(jdb_color_maps), ordered = TRUE), 
-                 color_maps = unname(jdb_color_maps))
+                 jdb_color_maps = unname(jdb_color_maps))
 
 ggplot(df, aes(x = names, y = -1, fill = names)) +
   geom_bar(stat = "identity") + pretty_plot(fontsize = 20) + 
@@ -89,7 +89,7 @@ ggplot(df, aes(x = names, y = -1, fill = names)) +
 ## ggplot example
 To coordinate a ggplot feature (e.g. data point in a scatter plot) with a particular color, [this post](https://www.biostars.org/p/204891/) was a life-saver. Specifically, we'll use a named vector
 to coordinate the discrete values. Here's an example--
-```{r, colormapPlotExample, fig.height = 3, echo = TRUE}
+```{r, colormapPlotExample, fig.height = 5, echo = TRUE}
 xy <- 1:7
 cell <- c("GMP-A", "Ery", "CD4", "Ery", "LMPP", "ERY", "MEP")
 
@@ -99,11 +99,12 @@ df <- data.frame(
 )
 
 ggplot(df, aes(x = xy, y = xy, color = cell)) +
-  geom_point(size = 12) + pretty_plot() +
+  geom_point(size = 10) + pretty_plot() +
   scale_color_manual(values = jdb_color_maps)
 
 ```
-**P.S.**-- it will return a white/blank color for features that are not found in the color map. 
+
+**P.S.**-- this call will return a blank color for features that are not found in the color map ("ERY" in this example).  
 
 ### Important Note on color mappings...
 
