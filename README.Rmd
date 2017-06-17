@@ -72,12 +72,12 @@ sort(names(jdb_color_maps))
 
 ### Here are what the mappings look like...
 ```{r, colormaps, fig.height = 10, echo = FALSE}
-df <- data.frame(names = factor(names(jdb_color_maps), ordered = TRUE), 
-                 jdb_color_maps = unname(jdb_color_maps))
+df <- data.frame(names = names(jdb_color_maps), 
+                 jdb_color_maps = unname(jdb_color_maps), stringsAsFactors = FALSE)
 
 ggplot(df, aes(x = names, y = -1, fill = names)) +
   geom_bar(stat = "identity") + pretty_plot(fontsize = 20) + 
-  scale_fill_manual(values = as.character(df$jdb_color_maps)[order(df$names)]) + coord_flip() +
+  scale_fill_manual(values = jdb_color_maps) + coord_flip() +
   theme(legend.position = "none")+
   scale_y_continuous(expand = c(0, 0)) +
   labs(x = NULL, y = NULL, title = "Buenrostro Lab Cell Schemes") +

@@ -118,7 +118,7 @@ ggplot(df, aes(x = xy, y = xy, color = cell)) +
 
 ![](figure/colormapPlotExample-1.png)
 
-**P.S.**-- this call will return a white/blank color for features that are not found in the color map ("ERY" in this example).
+**P.S.**-- this call will return a blank color for features that are not found in the color map ("ERY" in this example).
 
 ### Important Note on color mappings...
 
