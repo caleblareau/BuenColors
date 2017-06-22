@@ -52,7 +52,10 @@ nl <- theme_bw(base_size = fontsize) +
   theme(
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
-    axis.text = element_text(colour = "black", family="Helvetica"))
+    axis.text = element_text(colour = "black", family="Helvetica"),
+    legend.key = element_blank(),
+    strip.background = element_rect(colour="black", fill = "white")
+  )
 return(nl)
 }
 

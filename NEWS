@@ -1,7 +1,11 @@
 
+Version 0.3.1
+=============
+* Remove grey boxes automatically when doing facets.
+
 Version 0.3.0
 =============
-* Celltype/Feature color mpaping.
+* Celltype/Feature color maping.
 
 Version 0.2.1
 =============
