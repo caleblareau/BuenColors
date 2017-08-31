@@ -16,6 +16,7 @@ jdb_color_maps <- c(
   "GMP"= "#FFA300",
   "pDC" = "#C390D4",
   "mono" = "#FF5A00",
+  "GMP" = "#7D7D7D",
   "GMP-A" = "#AFAFAF",
   "GMP-B" = "#7D7D7D",
   "GMP-C" =  "#4B4B4B",

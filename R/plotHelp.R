@@ -40,7 +40,7 @@ get_density <- function(x, y, n = 200) {
 #'
 #' @param fontsize You know, the font size lol; default = 12
 #' @return A vector of densities for plotting
-#' @importFrom ggplot2 theme theme_bw element_blank element_text
+#' @importFrom ggplot2 theme theme_bw element_blank element_text element_rect
 #' @keywords point density
 #' @examples
 #' df <- data.frame(x = rnorm(1000), y = 0)

@@ -4,7 +4,7 @@
 \name{jdb_color_maps}
 \alias{jdb_color_maps}
 \title{List of maps between annotations and specified colors.}
-\format{An object of class \code{character} of length 17.}
+\format{An object of class \code{character} of length 18.}
 \usage{
 jdb_color_maps
 }
