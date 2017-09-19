@@ -105,14 +105,16 @@ numberToColorVec <- function(numberVec, palette, range = NULL){
   # user-defined caps in range
   vec <- numberVec
   num <- 100
+
   if (is.null(range)) {
-    breaks <- seq(min(vec), max(vec), length.out = num)
+    breaks <- seq(min(vec, na.rm = TRUE), max(vec, na.rm = TRUE), length.out = num)
   } else {
-    vec[which(vec < range[1])] = range[1]
-    vec[which(vec > range[2])] = range[2]
+    vec[which(vec < range[1])] <- range[1]
+    vec[which(vec > range[2])] <- range[2]
     breaks <- seq(range[1], range[2], length.out = num)
   }
 
+  # Setup color vector
   col <- grDevices::colorRampPalette(jdb_palette(palette, length(jdb_palettes[[palette]]), "continuous"))
   cols <- col(length(breaks) + 1)
   colvec <- as.character(cut(vec, c(-Inf, breaks, Inf), labels=cols))
