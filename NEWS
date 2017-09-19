@@ -1,4 +1,8 @@
 
+Version 0.4.2
+=============
+* Enables mapping of continuous vector to continuous color palette
+
 Version 0.4.0
 =============
 * More custom color palettes

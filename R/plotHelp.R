@@ -62,6 +62,7 @@ return(nl)
 #' Randomly shuffle the plotting order
 #'
 #' Idea is to make the plot independent of the sample ordering
+#'
 #' @param df data.frame (or similar 2D feature) whose rows will be shuffled
 #' @return An object with the rows shuffled
 #' @keywords point density
@@ -72,4 +73,48 @@ return(nl)
 #' @export
 shuf <- function(df){
   return(df[sample(1:dim(df)[1], dim(df)[1]),])
+}
+
+#' Maps numeric vector to color palette
+#'
+#' Modified from Sushi::maptocolors
+#'
+#' @param numberVec Numeric vector
+#'
+#' @param palette color palette to which to be mapped. Any
+#' valid palette in "BuenColors" should work.
+#'
+#' @param range The c(min, max) numeric values to
+#' make the color at the extremes.
+#'
+#' @importFrom grDevices colorRampPalette
+#'
+#' @examples
+#' i <- rnorm(1000)
+#' df <- data.frame(x = i, y = 0, color = numberToColorVec(i^2, "brewer_heat"))
+#' ggplot(shuf(df), aes(x=x, y=y, colour= color)) + geom_point() +
+#'  scale_color_manual(values = levels(df$color))
+#'
+#' @export
+#'
+numberToColorVec <- function(numberVec, palette, range = NULL){
+
+  stopifnot(is.numeric(numberVec))
+
+  # Parse numeric vector and setup breaks being sensitive to
+  # user-defined caps in range
+  vec <- numberVec
+  num <- 100
+  if (is.null(range)) {
+    breaks <- seq(min(vec), max(vec), length.out = num)
+  } else {
+    vec[which(vec < range[1])] = range[1]
+    vec[which(vec > range[2])] = range[2]
+    breaks <- seq(range[1], range[2], length.out = num)
+  }
+
+  col <- grDevices::colorRampPalette(jdb_palette(palette, length(jdb_palettes[[palette]]), "continuous"))
+  cols <- col(length(breaks) + 1)
+  colvec <- as.character(cut(vec, c(-Inf, breaks, Inf), labels=cols))
+  return(colvec)
 }

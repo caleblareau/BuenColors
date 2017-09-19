@@ -5,7 +5,7 @@
 \alias{ejc_color_maps}
 \title{List of maps between annotations and specified colors for scHeme/UKBB
 project}
-\format{An object of class \code{character} of length 18.}
+\format{An object of class \code{character} of length 19.}
 \usage{
 ejc_color_maps
 }
