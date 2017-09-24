@@ -1,4 +1,12 @@
 
+Version 0.5.0
+=============
+* Initial submission to CRAN
+
+Version 0.4.3
+=============
+* Better Handling of NAs
+
 Version 0.4.2
 =============
 * Enables mapping of continuous vector to continuous color palette

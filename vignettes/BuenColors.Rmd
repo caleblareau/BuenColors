@@ -1,0 +1,185 @@
+---
+title: Using BuenColors
+author: Caleb Lareau
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_document:
+    theme: readable
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "figure/",
+  fig.height = 1
+)
+```
+
+# BuenColors
+A package that facilitates nice colors created for the [Buenrostro Lab](https://buenrostrolab.com). The base of the package including some divergent color schemes were taken from the [wesanderson](https://github.com/karthik/wesanderson) package. This README provides a quick overview of how to use the color schemes with ggplot2 and which palettes are available. 
+
+## Installation via GitHub
+
+```R
+devtools::install_github("caleblareau/BuenColors")
+```
+
+## Color Palettes 
+
+```{r, library_dummy, message=FALSE, warning = FALSE}
+library(BuenColors)
+```
+
+With the library loaded, just type this to get either the `continuous` or 
+`discrete` (by default) palette printed in your `plot` console. 
+
+```{r, example}
+jdb_palette("FantasticFox")
+jdb_palette("aqua_brick", type = "continuous")
+```
+
+### Here are all the names that are available...
+```{r, palettes_dummy, echo = FALSE}
+sort(names(jdb_palettes))
+```
+
+## Color Maps
+To keep consistent color designations, one can use the `color_map` function to link features to their 
+specific hex color annoations. For example, 
+
+```{r, hsc1, echo = TRUE}
+jdb_color_map(c("HSC"))
+```
+
+returns the hex code associated with `HSC` in the Buenrostro Lab paradigm. This function may be applied 
+over multiple features--
+
+```{r, hsc2, echo = TRUE}
+jdb_color_map(c("HSC", "CMP", "HSC"))
+```
+
+and will error out when a feature is not recognized--
+
+```{r, hsc0, echo = TRUE, eval = FALSE}
+jdb_color_map(c("WHAT"))
+#>  Error: all(name %in% names(jdb_color_maps)) is not TRUE 
+```
+
+### Here are all the names that are available...
+```{r, colmaps_dummy, echo = FALSE}
+sort(names(jdb_color_maps))
+```
+
+### Here are what the mappings look like...
+```{r, colormaps, fig.height = 10, echo = FALSE}
+df <- data.frame(names = names(jdb_color_maps), 
+                 jdb_color_maps = unname(jdb_color_maps), stringsAsFactors = FALSE)
+
+ggplot(df, aes(x = names, y = -1, fill = names)) +
+  geom_bar(stat = "identity") + pretty_plot(fontsize = 20) + 
+  scale_fill_manual(values = jdb_color_maps) + coord_flip() +
+  theme(legend.position = "none")+
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(x = NULL, y = NULL, title = "Buenrostro Lab Cell Schemes") +
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(), panel.border = element_blank())
+
+```
+
+## ggplot example
+To coordinate a ggplot feature (e.g. data point in a scatter plot) with a particular color, [this post](https://www.biostars.org/p/204891/) was a life-saver. Specifically, we'll use a named vector
+to coordinate the discrete values. Here's an example--
+```{r, colormapPlotExample, fig.height = 5, echo = TRUE}
+xy <- 1:7
+cell <- c("GMP-A", "Ery", "CD4", "Ery", "LMPP", "ERY", "MEP")
+
+df <- data.frame(
+  xy = xy,
+  cell = cell, stringsAsFactors = FALSE
+)
+
+ggplot(df, aes(x = xy, y = xy, color = cell)) +
+  geom_point(size = 10) + pretty_plot() +
+  scale_color_manual(values = jdb_color_maps)
+
+```
+
+**P.S.**-- this call will return a blank color for features that are not found in the color map ("ERY" in this example).  
+
+### Important Note on color mappings...
+
+The above `ggplot` command works because `jdb_color_maps` (with an 's') exists as a named vector in the `BuenColors` NAMESPACE. The provided function (`jdb_color_map`) does not have an 's' by the way. This same syntax of supplying a named vector should work for all discrete color scale functionalities in `ggplot`. 
+
+# Discrete colors
+The trick here is to use `scale_color_manual` like it is shown here--
+
+```{r, discrete, fig.height = 3}
+library(ggplot2)
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + pretty_plot() + 
+  scale_color_manual(values = jdb_palette("brewer_spectra"))
+```
+
+# Continuous fill
+The trick here is to use `scale_color_gradientn` like it is shown here--
+
+```{r, ggplotcont, fig.height = 3}
+df <- data.frame(x = rnorm(1000), y = 0)
+ggplot(df, aes(x=x, y=y, colour=x)) + geom_point() + 
+  scale_color_gradientn(colors = jdb_palette("flame_light")) +
+  pretty_plot()
+```
+
+# Density Plot
+Best way that I've found to make the density color
+function represented in the points. Thanks to 
+[Kamil Slowikowski](http://slowkow.com/notes/ggplot2-color-by-density/) for
+figuring this out.
+
+```{r, ggplotdensty, fig.height = 5}
+dat <- data.frame(
+  x = c(
+    rnorm(1e4, mean = 0, sd = 0.1),
+    rnorm(1e3, mean = 0, sd = 0.1)
+  ),
+  y = c(
+    rnorm(1e4, mean = 0, sd = 0.1),
+    rnorm(1e3, mean = 0.1, sd = 0.2)
+  )
+)
+dat$density <- get_density(dat$x, dat$y)
+ggplot2::ggplot(dat) + geom_point(aes(x, y, color = density)) + 
+  scale_color_gradientn(colors = jdb_palette("solar_extra")) +
+  pretty_plot()
+```
+
+# Shuffle Plot Order
+Quick wrapper using `shuf` to change the order of plotting points
+(to a random presentation) to avoid hiding effects. 
+
+```{r, tsne, fig.height = 5}
+tdf<-paste(system.file('rds',package='BuenColors'),'basicTSNE.rds',sep='/')
+df <- readRDS(tdf)
+ggplot(shuf(df)) + geom_point(aes(X1, X2, color = counts)) + 
+  scale_color_gradientn(colors = jdb_palette("solar_extra")) +
+  pretty_plot()
+```
+
+
+## Continuous Colors
+Here's what each palette looks like on a continuous scale. 
+
+```{r, printCont, echo = FALSE, eval = TRUE}
+all <- sort(names(jdb_palettes))
+names(all) <- sort(names(jdb_palettes))
+lapply(all, function(p) jdb_palette(p, type = "continuous"))
+```
+
+## Discrete colors
+Here are the discrete color units that go into each scale. If n is small and discrete, note 
+that the colors that are selected are read from left to right. 
+
+```{r, printDiscrete, echo = FALSE}
+lapply(all, function(p) jdb_palette(p, type = "continuous"))
+```

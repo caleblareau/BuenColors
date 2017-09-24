@@ -10,5 +10,8 @@ Makefile
 screenshots/
 README.md
 README.html
+README.Rmd
+vignettes/figure
+vignettes/BuenColors.html
 
 ^cran-comments\.md$
