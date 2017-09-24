@@ -5,6 +5,10 @@ date: "`r Sys.Date()`"
 output:
   rmarkdown::html_document:
     theme: readable
+vignette: >
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteIndexEntry{Using BuenColors}
+  %\usepackage[UTF-8]{inputenc}
 ---
 
 ```{r, echo = FALSE}

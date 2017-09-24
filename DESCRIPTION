@@ -24,3 +24,4 @@ Collate:
     'colors.R'
     'plotHelp.R'
     'cell_colors.R'
+VignetteBuilder: knitr
