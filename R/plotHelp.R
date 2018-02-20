@@ -39,6 +39,7 @@ get_density <- function(x, y, n = 200) {
 #' Idea is to make it look more like Matlab
 #'
 #' @param fontsize You know, the font size lol; default = 10
+#' @param font The font; Arial comes non-default apparently; default = "Helvetica"
 #' @return A vector of densities for plotting
 #' @importFrom ggplot2 theme theme_bw element_blank element_text element_rect
 #' @keywords point density
@@ -47,12 +48,12 @@ get_density <- function(x, y, n = 200) {
 #' ggplot(df, aes(x=x, y=y, colour=x)) + geom_point()
 #'
 #' @export
-pretty_plot <- function(fontsize = 10){
+pretty_plot <- function(fontsize = 10, font = "Helvetica"){
 nl <- theme_bw(base_size = fontsize) +
   theme(
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
-    axis.text = element_text(colour = "black", family="Arial"),
+    axis.text = element_text(colour = "black", family=font),
     legend.key = element_blank(),
     strip.background = element_rect(colour="black", fill = "white")
   )

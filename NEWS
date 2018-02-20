@@ -1,4 +1,8 @@
 
+Version 0.5.4
+=============
+* Parameterize font in pretty_plot()
+
 Version 0.5.3
 =============
 * Arial becomes default font in pretty_plot()
