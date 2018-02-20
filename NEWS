@@ -1,7 +1,12 @@
 
+Version 0.5.3
+=============
+* Arial becomes default font in pretty_plot()
+* Added g_legend() function
+
 Version 0.5.1
 =============
-* Initial submission to CRAN
+* Minor color map tweaks
 
 Version 0.5.0
 =============

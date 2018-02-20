@@ -1,8 +1,8 @@
 Package: BuenColors
 Title: Plotting utils and colors for Buenrostrolab
 Description: R utility package for color mapping and plot aesthetics.
-Date: 2017-02-10
-Version: 0.5.2
+Date: 2017-02-19
+Version: 0.5.3
 Authors@R: c(
     person("Caleb", "Lareau", email = "caleblareau@g.harvard.edu", role = c("aut", "cre"))
     )

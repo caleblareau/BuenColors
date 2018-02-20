@@ -38,7 +38,7 @@ get_density <- function(x, y, n = 200) {
 #'
 #' Idea is to make it look more like Matlab
 #'
-#' @param fontsize You know, the font size lol; default = 12
+#' @param fontsize You know, the font size lol; default = 10
 #' @return A vector of densities for plotting
 #' @importFrom ggplot2 theme theme_bw element_blank element_text element_rect
 #' @keywords point density
@@ -47,12 +47,12 @@ get_density <- function(x, y, n = 200) {
 #' ggplot(df, aes(x=x, y=y, colour=x)) + geom_point()
 #'
 #' @export
-pretty_plot <- function(fontsize = 12){
+pretty_plot <- function(fontsize = 10){
 nl <- theme_bw(base_size = fontsize) +
   theme(
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
-    axis.text = element_text(colour = "black", family="Helvetica"),
+    axis.text = element_text(colour = "black", family="Arial"),
     legend.key = element_blank(),
     strip.background = element_rect(colour="black", fill = "white")
   )
@@ -120,3 +120,29 @@ numberToColorVec <- function(numberVec, palette, range = NULL){
   colvec <- as.character(cut(vec, c(-Inf, breaks, Inf), labels=cols))
   return(colvec)
 }
+
+#' Extract a legend from ggplot
+#'
+#' Grab the legend from a ggplot object and use it
+#' for saving in its own file
+#'
+#' @param a.gplot ggplot plot object with a color / fill legend
+#' @return A new ggplot object with only the legend
+#' @importFrom ggplot2 ggplot_gtable
+#' @importFrom ggplot2 ggplot_build
+#' @keywords legend guide
+#' @examples
+#' df <- data.frame(x = rnorm(1000), y = 0)
+#' p1 <- ggplot(shuf(df), aes(x=x, y=y, colour=x)) + geom_point()
+#' legendP <- g_legend(p1)
+#'
+#' @export
+# Extract legend
+g_legend<-function(a.gplot){
+  tmp <- ggplot_gtable(ggplot_build(a.gplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  return(legend)
+}
+
+
