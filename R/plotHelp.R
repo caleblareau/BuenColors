@@ -49,15 +49,15 @@ get_density <- function(x, y, n = 200) {
 #'
 #' @export
 pretty_plot <- function(fontsize = 10, font = "Helvetica"){
-nl <- theme_bw(base_size = fontsize) +
-  theme(
-    panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(),
-    axis.text = element_text(colour = "black", family=font),
-    legend.key = element_blank(),
-    strip.background = element_rect(colour="black", fill = "white")
-  )
-return(nl)
+  nl <- theme_bw(base_size = fontsize) +
+    theme(
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      axis.text = element_text(colour = "black", family=font),
+      legend.key = element_blank(),
+      strip.background = element_rect(colour="black", fill = "white")
+    )
+  return(nl)
 }
 
 #' Randomly shuffle the plotting order
@@ -144,6 +144,29 @@ g_legend<-function(a.gplot){
   leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
   legend <- tmp$grobs[[leg]]
   return(legend)
+}
+
+#' Axes along the bottom and left
+#'
+#' Modify ggplot theme such that
+#' only the bottom X axis and left Y axis are shown making an "L"
+#'
+#' @return A ggplot theme object
+#' @importFrom ggplot2 element_line
+#' @keywords legend guide
+#' @examples
+#' df <- data.frame(x = rnorm(1000), y = 0)
+#' p1 <- ggplot(shuf(df), aes(x=x, y=y, colour=x)) + geom_point()
+#' p1
+#'
+#' @export
+# Extract legend
+L_border<-function(){
+  L_border <- theme(panel.border=element_blank(), axis.line=element_line()) +
+    theme(panel.grid.minor=element_blank(),
+          panel.grid.major=element_blank(),
+          panel.background=element_blank())
+  return(L_border)
 }
 
 
