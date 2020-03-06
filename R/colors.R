@@ -28,8 +28,13 @@ jdb_palettes <- list(
 
   # Others
   lawhoops = c('#371377','#7700FF','#9E0142',"#CB2314",'#FF0080', '#DC494C',
-       '#F88D51', "#FAD510","#FFFF5F",'#88CFA4','#238B45',"#02401B",
-       "#0AD7D3", "dodgerblue", "#046C9A", "#273046", "#A2A475", "#354823", 'grey35', "#1E1E1E"),
+               '#F88D51', "#FAD510","#FFFF5F",'#88CFA4','#238B45',"#02401B",
+               "#0AD7D3", "dodgerblue", "#046C9A", "#273046", "#A2A475", "#354823", 'grey35', "#1E1E1E"),
+
+  corona = c("#1f77b4","#d62728","#2ca02c","#ff7f0e","#9467bd","#8c564b","#e377c2","#7f7f7f",
+           "#bcbd22","#17becf","#ad494a","#e7ba52","#8ca252","#756bb1","#636363","#aec7e8",
+           "#ff9896","#98df8a","#ffbb78","#c5b0d5","#c49c94","#f7b6d2","#c7c7c7","#dbdb8d",
+           "#9edae5","#e7969c","#e7cb94","#c7e9c0","#de9ed6","#d9d9d9"),
 
   # Palettes from JDB
   citric = c('#03AB11', '#FFF301'),
@@ -163,8 +168,8 @@ jdb_palette <- function(name, n, type = c("discrete", "continuous")) {
   }
 
   out <- switch(type,
-    continuous = colorRampPalette(pal)(1000),
-    discrete = pal[1:n]
+                continuous = colorRampPalette(pal)(1000),
+                discrete = pal[1:n]
   )
   structure(out, class = "palette", name = name)
 }
@@ -176,7 +181,7 @@ print.palette <- function(x, ...) {
   on.exit(par(old))
 
   image(1:n, 1, as.matrix(1:n), col = x,
-    ylab = "", xaxt = "n", yaxt = "n")
+        ylab = "", xaxt = "n", yaxt = "n")
 
   rect(0, 0.9, n + 1, 1.1, col = rgb(1, 1, 1, 0.8), border = NA)
   text((n + 1) / 2, 1, labels = attr(x, "name"), cex = 1, family = "serif")
